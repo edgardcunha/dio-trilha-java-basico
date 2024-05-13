@@ -3,7 +3,7 @@ public class Conta {
     private int numConta;
     private String agencia;
     private String nomeCliente;
-    double saldo;
+    private double saldo;
 
     public Conta() {
         this.numConta = 0;
@@ -51,6 +51,9 @@ public class Conta {
     }
 
     public Conta setSaldo(double saldo) {
+        if (saldo < 0) {
+            throw new IllegalArgumentException("Saldo não pode ser negativo.");
+        }
         this.saldo = saldo;
         return this;
     }
